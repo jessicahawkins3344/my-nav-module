@@ -753,7 +753,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.dslc-navigation .menu > li > a, .cs-select span',
-                    'affect_on_change_rule' => 'font-size',
+                    'affect_on_change_rule' => 'font-size, line-height',
                     'section' => 'styling',
                     'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
                     'ext' => 'px',
