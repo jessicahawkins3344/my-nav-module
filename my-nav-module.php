@@ -250,7 +250,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_el' => '.cs-skin-border.cs-active > span, span.cs-placeholder',
                     'affect_on_change_rule' => 'background',
                     'section' => 'styling',
-                    'tab' => 'responsive menu'
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Placeholder Border Color', 'live-composer-page-builder' ),
@@ -261,7 +261,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_el' => '.cs-skin-border > span, .cs-select > span, .cs-skin-underline > span, div.cs-skin-underline ',
                     'affect_on_change_rule' => 'border-color',
                     'section' => 'styling',
-                    'tab' => 'responsive menu'
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Placeholder Border Width', 'live-composer-page-builder' ),
@@ -506,7 +506,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_el' => '.cs-select .cs-options',
                     'affect_on_change_rule' => 'background-color',
                     'section' => 'styling',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Dropdown Border Color', 'live-composer-page-builder' ),
@@ -517,7 +517,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options',
                     'affect_on_change_rule' => 'border-color',
                     'section' => 'styling',
-                    'tab' => 'responsive menu'
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Dropdown Border Width', 'live-composer-page-builder' ),
@@ -573,7 +573,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'section' => 'styling',
                     'ext' => 'px',
                     'section' => 'styling',
-                    'tab' => __( 'responsive menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
 
                 array(
@@ -686,7 +686,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_el' => '.cs-select span',
                     'affect_on_change_rule' => 'color',
                     'section' => 'styling',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Color - Hover', 'live-composer-page-builder' ),
@@ -697,7 +697,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_el' => '.cs-select span:hover, .cs-select span:focus, cs-options li.menu-item:hover, li.menu-item:focus, .cs-options li span:hover, .cs-select span:hover',
                     'affect_on_change_rule' => 'color',
                     'section' => 'styling',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Item Background Color', 'live-composer-page-builder' ),
@@ -708,7 +708,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_el' => '.cs-select ul > li',
                     'affect_on_change_rule' => 'background',
                     'section' => 'styling',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Color', 'live-composer-page-builder' ),
@@ -767,7 +767,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_el' => '.dslc-navigation .menu > li > a, .cs-select span',
                     'affect_on_change_rule' => 'font-size, line-height',
                     'section' => 'styling',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                     'ext' => 'px',
                 ),
                 array(
@@ -883,7 +883,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_rule' => 'margin-bottom,margin-top',
                     'section' => 'styling',
                     'ext' => 'px',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Item Padding Vertical', 'live-composer-page-builder' ),
@@ -897,7 +897,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_rule' => 'padding-top,padding-bottom',
                     'section' => 'styling',
                     'ext' => 'px',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
@@ -923,7 +923,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_rule' => 'padding-left,padding-right',
                     'section' => 'styling',
                     'ext' => 'px',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Dropdown Margin Top', 'live-composer-page-builder' ),
@@ -936,7 +936,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_rule' => 'margin-top',
                     'section' => 'styling',
                     'ext' => 'px',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
                  array(
                     'label' => __( 'Dropdown Padding Horizontal', 'live-composer-page-builder' ),
@@ -949,7 +949,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_rule' => 'padding-left,padding-right',
                     'section' => 'styling',
                     'ext' => 'px',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Text Transform', 'live-composer-page-builder' ),
@@ -1681,7 +1681,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_el' => '.dslc-mobile-navigation, .cs-select ul',
                     'affect_on_change_rule' => 'text-align',
                     'section' => 'responsive',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'tab' => 'responsive menu',
                 ),
 
                 array(
