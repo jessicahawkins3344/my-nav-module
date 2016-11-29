@@ -223,12 +223,23 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 array(
                     'label' => __( 'Border Color', 'live-composer-page-builder' ),
                     'id' => 'css_main_border_color',
-                    'std' => '',
+                    'std' => 'rgba(0,0,0,0)',
                     'type' => 'color',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.dslc-navigation-inner, .cs-select span',
                     'affect_on_change_rule' => 'border-color',
                     'section' => 'styling',
+                ),
+                array(
+                    'label' => __( 'Placeholder Color', 'live-composer-page-builder' ),
+                    'id' => 'css_res_ph_color',
+                    'std' => '#fd4970',
+                    'type' => 'color',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border.cs-active > span, span.cs-placeholder',
+                    'affect_on_change_rule' => 'color',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu'
                 ),
                 array(
                     'label' => __( 'Placeholder Background', 'live-composer-page-builder' ),
@@ -243,7 +254,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                 array(
                     'label' => __( 'Placeholder Border Color', 'live-composer-page-builder' ),
-                    'id' => 'css_res_border_color',
+                    'id' => 'css_res_ph_border_color',
                     'std' => '#ffffff',
                     'type' => 'color',
                     'refresh_on_change' => false,
@@ -254,9 +265,9 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                 array(
                     'label' => __( 'Placeholder Border Width', 'live-composer-page-builder' ),
-                    'id' => 'css_res_border_width',
+                    'id' => 'css_res_ph_border_width',
                     'onlypositive' => true, // Value can't be negative.
-                    'std' => '0',
+                    'std' => '3',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-skin-border > span, .cs-select > span, .cs-skin-underline > span, div.cs-skin-underline ',
@@ -267,7 +278,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                 array(
                     'label' => __( 'Placeholder Borders', 'live-composer-page-builder' ),
-                    'id' => 'css_res_border_trbl',
+                    'id' => 'css_res_ph_border',
                     'std' => 'top right bottom left',
                     'type' => 'checkbox',
                     'choices' => array(
@@ -296,7 +307,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                 array(
                     'label' => __( 'Placeholder Border Radius', 'live-composer-page-builder' ),
-                    'id' => 'css_res_ph_border_trbl',
+                    'id' => 'css_res_ph_border_radius',
                     'std' => '5',
                     'type' => 'slider',
                     'refresh_on_change' => false,
@@ -488,8 +499,8 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                 array(
                     'label' => __( 'Dropdown BG Color', 'live-composer-page-builder' ),
-                    'id' => 'css_res_dropdown_bg_color_active',
-                    'std' => '',
+                    'id' => 'css_res_dropdown_bg_color',
+                    'std' => '#323232',
                     'type' => 'color',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-select .cs-options',
@@ -512,7 +523,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'label' => __( 'Dropdown Border Width', 'live-composer-page-builder' ),
                     'id' => 'css_res_dd_border_width',
                     'onlypositive' => true, // Value can't be negative.
-                    'std' => '0',
+                    'std' => '3',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options',
@@ -552,16 +563,17 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                 array(
                     'label' => __( 'Dropdown Border Radius', 'live-composer-page-builder' ),
-                    'id' => 'css_dd_border_radius',
+                    'id' => 'css_res_dd_border_radius',
                     'onlypositive' => true, // Value can't be negative.
-                    'std' => '0',
+                    'std' => '5',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options, .cs-select ul.menu',
                     'affect_on_change_rule' => 'border-radius',
                     'section' => 'styling',
                     'ext' => 'px',
-                    'tab' => __( 'Responsive Menu', 'live-composer-page-builder' ),
+                    'section' => 'styling',
+                    'tab' => __( 'responsive menu', 'live-composer-page-builder' ),
                 ),
 
                 array(
@@ -667,8 +679,8 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                 array(
                     'label' => __( 'Color', 'live-composer-page-builder' ),
-                    'id' => 'css_item_color',
-                    'std' => '#555555',
+                    'id' => 'css_res_item_color',
+                    'std' => '#ffffff',
                     'type' => 'color',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-select span',
@@ -864,7 +876,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 array(
                     'label' => __( 'Item Spacing', 'live-composer-page-builder' ),
                     'id' => 'css_res_item_spacing',
-                    'std' => '10',
+                    'std' => '3',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-skin-border ul span, .cs-select ul span',
@@ -878,7 +890,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'id' => 'css_res_item_padding_vertical',
                     'onlypositive' => true, // Value can't be negative.
                     'max' => 600,
-                    'std' => '0',
+                    'std' => '15',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-skin-border ul span, .cs-select ul span',
@@ -891,7 +903,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
                     'id' => 'css_item_padding_horizontal',
                     'onlypositive' => true, // Value can't be negative.
-                    'std' => '0',
+                    'std' => '15',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.dslc-navigation .menu > li > a',
@@ -904,7 +916,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'label' => __( 'Item Padding Horizontal', 'live-composer-page-builder' ),
                     'id' => 'css_res_item_padding_horizontal',
                     'onlypositive' => true, // Value can't be negative.
-                    'std' => '0',
+                    'std' => '20',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-skin-border ul span, .cs-select ul span',
@@ -917,7 +929,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'label' => __( 'Dropdown Margin Top', 'live-composer-page-builder' ),
                     'id' => 'css_dd_margin_top_horizontal',
                     'onlypositive' => true, // Value can't be negative.
-                    'std' => '5',
+                    'std' => '15',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-select .cs-options',
@@ -1821,3 +1833,41 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
     }
 
 }
+
+function my_nav_module_defaults( $options, $id ) {
+
+    // The array that will hold new defaults
+    $new_defaults = array();
+
+    if ( $id == 'My_Nav_Module' ) {
+        $new_defaults = array(
+            'location' => 'dslc_main_nav',
+            'res_text' => 'MENU',
+            'css_res_ph_bg_color' => 'rgba(0,0,0,0)',
+            'css_res_border_color' => '#303030',
+            'css_res_border_width' => '3',
+            'css_margin_bottom' => '20',
+            'css_res_dropdown_bg_color_active' => '#353535',
+            'css_res_dd_border_color' => '#424242',
+            'css_res_dd_border_width' => '3',
+            'css_res_dd_borders' => 'right left ',
+            'css_dd_border_radius' => '5',
+            'css_item_color' => '#fd4970',
+            'css_res_item_color_hover' => '#ffffff',
+            'css_res_item_bg_color_active' => '#383838',
+            'css_item_font_size' => '29',
+            'css_res_item_font_size' => '19',
+            'css_item_font_weight, .cs-select span' => '',
+            'css_res_item_spacing' => '3',
+            'css_res_item_padding_vertical' => '18',
+            'css_res_item_padding_horizontal' => '25',
+            'css_dd_margin_top_horizontal' => '15',
+            'css_item_text_transform' => 'uppercase',
+            'css_res_align' => 'center',
+        );
+    }
+
+    return dslc_set_defaults( $new_defaults, $options );
+ 
+} 
+add_filter( 'dslc_module_options', 'my_nav_module_defaults', 10, 2 );
