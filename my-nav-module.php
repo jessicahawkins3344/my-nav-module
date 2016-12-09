@@ -789,7 +789,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'id' => 'css_item_font_weight, .cs-select span',
                     'std' => '700',
                     'type' => 'select',
-                    'choices' => array(s
+                    'choices' => array(
                         array(
                             'label' => '100 - Thin',
                             'value' => '100',
