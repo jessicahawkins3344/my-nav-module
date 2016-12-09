@@ -9,28 +9,28 @@
 // Check if Live Composer is active
 if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
 
-	//ENQUEUE JQUERY & CUSTOM SCRIPTS
-	function lc_nav_load_scripts() {
-	    wp_enqueue_style( 'cs-select',  plugin_dir_url( __FILE__ ) . 'css/cs-select.css' );
-	    wp_enqueue_style( 'cs-skin-underline',  plugin_dir_url( __FILE__ ) . 'css/cs-skin-underline.css' );
-	    wp_enqueue_script( 'classie', plugin_dir_url( __FILE__ ) . 'js/classie.js', false, null, false  );
+    //ENQUEUE JQUERY & CUSTOM SCRIPTS
+    function lc_nav_load_scripts() {
+        wp_enqueue_style( 'cs-select',  plugin_dir_url( __FILE__ ) . 'css/cs-select.css' );
+        wp_enqueue_style( 'cs-skin-underline',  plugin_dir_url( __FILE__ ) . 'css/cs-skin-underline.css' );
+        wp_enqueue_script( 'classie', plugin_dir_url( __FILE__ ) . 'js/classie.js', false, null, false  );
         wp_enqueue_script( 'selectFx', plugin_dir_url( __FILE__ ) . 'js/selectFx.js', false, null, false );
-	}
-	add_action( 'wp_enqueue_scripts', 'lc_nav_load_scripts' );
+    }
+    add_action( 'wp_enqueue_scripts', 'lc_nav_load_scripts' );
 
-	add_action('dslc_hook_register_modules',
-	     create_function('', 'return dslc_register_module( "My_Nav_Module" );')
-	);
+    add_action('dslc_hook_register_modules',
+         create_function('', 'return dslc_register_module( "My_Nav_Module" );')
+    );
 
-	class My_Nav_Module extends DSLC_Module {
-	 		
-	 	// Module Attributes
-	    var $module_id = 'My_Nav_Module';
-	    var $module_title = 'My Nav Module';
-	    var $module_icon = 'circle';
-	    var $module_category = 'general';
-	 
-	 	// Module Options
+    class My_Nav_Module extends DSLC_Module {
+            
+        // Module Attributes
+        var $module_id = 'My_Nav_Module';
+        var $module_title = 'My Nav Module';
+        var $module_icon = 'circle';
+        var $module_category = 'general';
+     
+        // Module Options
         function options() {
 
             $locs = get_registered_nav_menus();
@@ -308,7 +308,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 array(
                     'label' => __( 'Placeholder Border Radius', 'live-composer-page-builder' ),
                     'id' => 'css_res_ph_border_radius',
-                    'std' => '5',
+                    'std' => '0',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-skin-border.cs-active > span, span.cs-placeholder',
@@ -317,6 +317,20 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'tab' => 'responsive menu',
                     'ext' => 'px',
 
+                ),
+                array(
+                    'label' => __( 'Placeholder Padding Vertical', 'live-composer-page-builder' ),
+                    'id' => 'css_res_ph_pad_vertical',
+                    'onlypositive' => true, // Value can't be negative.
+                    'max' => 100,
+                    'std' => '5',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => 'span.cs-placeholder',
+                    'affect_on_change_rule' => 'padding-top,padding-bottom',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+                    'ext' => 'px',
                 ),
                 array(
                     'label' => __( 'Border Width', 'live-composer-page-builder' ),
@@ -683,7 +697,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'std' => '#ffffff',
                     'type' => 'color',
                     'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-select span',
+                    'affect_on_change_el' => '.cs-options span',
                     'affect_on_change_rule' => 'color',
                     'section' => 'styling',
                     'tab' => 'responsive menu',
@@ -838,7 +852,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'std' => '0',
                     'type' => 'slider',
                     'refresh_on_change' => false,
-                    'affect_on_change_el' => '.dslc-navigation .menu > li > a, .cs-skin-border ul span, .cs-select ul span',
+                    'affect_on_change_el' => '.dslc-navigation .menu > li > a, .cs-skin-border ul span, .cs-select ul span, span.cs-placeholder',
                     'affect_on_change_rule' => 'letter-spacing',
                     'section' => 'styling',
                     'tab' => __( 'Item', 'live-composer-page-builder' ),
@@ -940,13 +954,13 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                  array(
                     'label' => __( 'Dropdown Padding Horizontal', 'live-composer-page-builder' ),
-                    'id' => 'css_item_padding_horizontal',
+                    'id' => 'css_res_dd_padding_horizontal',
                     'onlypositive' => true, // Value can't be negative.
                     'std' => '0',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.cs-select .cs-options',
-                    'affect_on_change_rule' => 'padding-left,padding-right',
+                    'affect_on_change_rule' => 'padding-left, padding-right',
                     'section' => 'styling',
                     'ext' => 'px',
                     'tab' => 'responsive menu',
@@ -1828,7 +1842,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
 
         $this->module_end( $options );
 
-    	}
+        }
      
     }
 
