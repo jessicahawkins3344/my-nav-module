@@ -760,9 +760,9 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
 
                 array(
                     'label' => __( 'Font Size', 'live-composer-page-builder' ),
-                    'id' => 'css_item_font_size',
+                    'id' => 'css_custom_item_font_size',
                     'onlypositive' => true, // Value can't be negative.
-                    'std' => '14',
+                    'std' => '20',
                     'type' => 'slider',
                     'refresh_on_change' => false,
                     'affect_on_change_el' => '.dslc-navigation .menu > li > a',
@@ -775,10 +775,10 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'label' => __( 'Font Size', 'live-composer-page-builder' ),
                     'id' => 'css_res_item_font_size',
                     'onlypositive' => true, // Value can't be negative.
-                    'std' => '14',
+                    'std' => '20',
                     'type' => 'slider',
                     'refresh_on_change' => false,
-                    'affect_on_change_el' => '.dslc-navigation .menu > li > a, .cs-select span',
+                    'affect_on_change_el' => '.cs-select ul span, span.cs-placeholder',
                     'affect_on_change_rule' => 'font-size, line-height',
                     'section' => 'styling',
                     'tab' => 'responsive menu',
@@ -789,7 +789,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'id' => 'css_item_font_weight, .cs-select span',
                     'std' => '700',
                     'type' => 'select',
-                    'choices' => array(
+                    'choices' => array(s
                         array(
                             'label' => '100 - Thin',
                             'value' => '100',
@@ -1754,12 +1754,12 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
             }
         } else {
             ?>
-            <div class="dslc-navigation dslc-navigation-sub-position-<?php echo esc_attr( $options['css_subnav_position'] ); ?> dslc-navigation-res-t-<?php echo esc_attr( $options['css_res_t'] ); ?> dslc-navigation-res-p-<?php echo esc_attr( $options['css_res_p'] ); ?> dslc-navigation-orientation-<?php echo esc_attr( $options['nav_orientation'] ); ?>">
+            <div class="my-nav-module dslc-navigation dslc-navigation-sub-position-<?php echo esc_attr( $options['css_subnav_position'] ); ?> dslc-navigation-res-t-<?php echo esc_attr( $options['css_res_t'] ); ?> dslc-navigation-res-p-<?php echo esc_attr( $options['css_res_p'] ); ?> dslc-navigation-orientation-<?php echo esc_attr( $options['nav_orientation'] ); ?>">
                 <div class="dslc-navigation-inner">
                     <?php wp_nav_menu( array( 'theme_location' => $options['location'] ) ); ?>
                 </div>
             </div>
-            <div class="dslc-mobile-navigation dslc-navigation-res-t-<?php echo esc_attr( $options['css_res_t'] ); ?>  dslc-navigation-res-p-<?php echo esc_attr( $options['css_res_p'] ); ?>">
+            <div class="my-nav-module dslc-mobile-navigation dslc-navigation-res-t-<?php echo esc_attr( $options['css_res_t'] ); ?>  dslc-navigation-res-p-<?php echo esc_attr( $options['css_res_p'] ); ?>">
                 <?php
                 if ( has_nav_menu( $options['location'] ) ) {
 
