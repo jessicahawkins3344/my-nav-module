@@ -13,6 +13,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
     function lc_nav_load_scripts() {
         wp_enqueue_style( 'cs-select',  plugin_dir_url( __FILE__ ) . 'css/cs-select.css' );
         wp_enqueue_style( 'cs-skin-underline',  plugin_dir_url( __FILE__ ) . 'css/cs-skin-underline.css' );
+        wp_enqueue_script( 'fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', false, null, false );
         wp_enqueue_script( 'classie', plugin_dir_url( __FILE__ ) . 'js/classie.js', false, null, false  );
         wp_enqueue_script( 'selectFx', plugin_dir_url( __FILE__ ) . 'js/selectFx.js', false, null, false );
     }
@@ -231,108 +232,6 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'section' => 'styling',
                 ),
                 array(
-                    'label' => __( 'Placeholder Color', 'live-composer-page-builder' ),
-                    'id' => 'css_res_ph_color',
-                    'std' => '#fd4970',
-                    'type' => 'color',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border.cs-active > span, span.cs-placeholder',
-                    'affect_on_change_rule' => 'color',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu'
-                ),
-                array(
-                    'label' => __( 'Placeholder Background', 'live-composer-page-builder' ),
-                    'id' => 'css_res_ph_bg_color',
-                    'std' => '',
-                    'type' => 'color',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border.cs-active > span, span.cs-placeholder',
-                    'affect_on_change_rule' => 'background',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Placeholder Border Color', 'live-composer-page-builder' ),
-                    'id' => 'css_res_ph_border_color',
-                    'std' => '#ffffff',
-                    'type' => 'color',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border > span, .cs-select > span, .cs-skin-underline > span, div.cs-skin-underline ',
-                    'affect_on_change_rule' => 'border-color',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Placeholder Border Width', 'live-composer-page-builder' ),
-                    'id' => 'css_res_ph_border_width',
-                    'onlypositive' => true, // Value can't be negative.
-                    'std' => '3',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border > span, .cs-select > span, .cs-skin-underline > span, div.cs-skin-underline ',
-                    'affect_on_change_rule' => 'border-width',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                    'ext' => 'px',
-                ),
-                array(
-                    'label' => __( 'Placeholder Borders', 'live-composer-page-builder' ),
-                    'id' => 'css_res_ph_border',
-                    'std' => 'top right bottom left',
-                    'type' => 'checkbox',
-                    'choices' => array(
-                        array(
-                            'label' => __( 'Top', 'live-composer-page-builder' ),
-                            'value' => 'top',
-                        ),
-                        array(
-                            'label' => __( 'Right', 'live-composer-page-builder' ),
-                            'value' => 'right',
-                        ),
-                        array(
-                            'label' => __( 'Bottom', 'live-composer-page-builder' ),
-                            'value' => 'bottom',
-                        ),
-                        array(
-                            'label' => __( 'Left', 'live-composer-page-builder' ),
-                            'value' => 'left',
-                        ),
-                    ),
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border > span, .cs-select > span',
-                    'affect_on_change_rule' => 'border-style',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Placeholder Border Radius', 'live-composer-page-builder' ),
-                    'id' => 'css_res_ph_border_radius',
-                    'std' => '0',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border.cs-active > span, span.cs-placeholder',
-                    'affect_on_change_rule' => 'border-radius',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                    'ext' => 'px',
-
-                ),
-                array(
-                    'label' => __( 'Placeholder Padding Vertical', 'live-composer-page-builder' ),
-                    'id' => 'css_res_ph_pad_vertical',
-                    'onlypositive' => true, // Value can't be negative.
-                    'max' => 100,
-                    'std' => '5',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => 'span.cs-placeholder',
-                    'affect_on_change_rule' => 'padding-top,padding-bottom',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                    'ext' => 'px',
-                ),
-                array(
                     'label' => __( 'Border Width', 'live-composer-page-builder' ),
                     'id' => 'css_main_border_width',
                     'onlypositive' => true, // Value can't be negative.
@@ -413,7 +312,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'std' => '0',
                     'type' => 'slider',
                     'refresh_on_change' => false,
-                    'affect_on_change_el' => '.dslc-navigation-inner, .dslc-mobile-navigation',
+                    'affect_on_change_el' => '.dslc-navigation-inner',
                     'affect_on_change_rule' => 'margin-bottom',
                     'section' => 'styling',
                     'ext' => 'px',
@@ -511,85 +410,6 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'section' => 'styling',
                     'tab' => __( 'Item', 'live-composer-page-builder' ),
                 ),
-                array(
-                    'label' => __( 'Dropdown BG Color', 'live-composer-page-builder' ),
-                    'id' => 'css_res_dropdown_bg_color',
-                    'std' => '#323232',
-                    'type' => 'color',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-select .cs-options',
-                    'affect_on_change_rule' => 'background-color',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Dropdown Border Color', 'live-composer-page-builder' ),
-                    'id' => 'css_res_dd_border_color',
-                    'std' => '',
-                    'type' => 'color',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options',
-                    'affect_on_change_rule' => 'border-color',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Dropdown Border Width', 'live-composer-page-builder' ),
-                    'id' => 'css_res_dd_border_width',
-                    'onlypositive' => true, // Value can't be negative.
-                    'std' => '3',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options',
-                    'affect_on_change_rule' => 'border-width',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                    'ext' => 'px',
-                ),
-                array(
-                    'label' => __( 'Dropdown Borders', 'live-composer-page-builder' ),
-                    'id' => 'css_res_dd_borders',
-                    'std' => 'top right bottom left',
-                    'type' => 'checkbox',
-                    'choices' => array(
-                        array(
-                            'label' => __( 'Top', 'live-composer-page-builder' ),
-                            'value' => 'top',
-                        ),
-                        array(
-                            'label' => __( 'Right', 'live-composer-page-builder' ),
-                            'value' => 'right',
-                        ),
-                        array(
-                            'label' => __( 'Bottom', 'live-composer-page-builder' ),
-                            'value' => 'bottom',
-                        ),
-                        array(
-                            'label' => __( 'Left', 'live-composer-page-builder' ),
-                            'value' => 'left',
-                        ),
-                    ),
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options',
-                    'affect_on_change_rule' => 'border-style',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Dropdown Border Radius', 'live-composer-page-builder' ),
-                    'id' => 'css_res_dd_border_radius',
-                    'onlypositive' => true, // Value can't be negative.
-                    'std' => '5',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options, .cs-select ul.menu',
-                    'affect_on_change_rule' => 'border-radius',
-                    'section' => 'styling',
-                    'ext' => 'px',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                ),
-
                 array(
                     'label' => __( 'Border Color', 'live-composer-page-builder' ),
                     'id' => 'css_item_border_color',
@@ -694,39 +514,6 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 array(
                     'label' => __( 'Color', 'live-composer-page-builder' ),
                     'id' => 'css_res_item_color',
-                    'std' => '#ffffff',
-                    'type' => 'color',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-options span',
-                    'affect_on_change_rule' => 'color',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Color - Hover', 'live-composer-page-builder' ),
-                    'id' => 'css_res_item_color_hover',
-                    'std' => '#fd4970',
-                    'type' => 'color',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-select span:hover, .cs-select span:focus, cs-options li.menu-item:hover, li.menu-item:focus, .cs-options li span:hover, .cs-select span:hover',
-                    'affect_on_change_rule' => 'color',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Item Background Color', 'live-composer-page-builder' ),
-                    'id' => 'css_res_item_bg_color_active',
-                    'std' => '#fd4970',
-                    'type' => 'color',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-select ul > li',
-                    'affect_on_change_rule' => 'background',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Color', 'live-composer-page-builder' ),
-                    'id' => 'css_res_item_color',
                     'std' => '#555555',
                     'type' => 'color',
                     'refresh_on_change' => false,
@@ -769,19 +556,6 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'affect_on_change_rule' => 'font-size',
                     'section' => 'styling',
                     'tab' => __( 'Item', 'live-composer-page-builder' ),
-                    'ext' => 'px',
-                ),
-                array(
-                    'label' => __( 'Font Size', 'live-composer-page-builder' ),
-                    'id' => 'css_res_item_font_size',
-                    'onlypositive' => true, // Value can't be negative.
-                    'std' => '20',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-select ul span, span.cs-placeholder',
-                    'affect_on_change_rule' => 'font-size, line-height',
-                    'section' => 'styling',
-                    'tab' => 'responsive menu',
                     'ext' => 'px',
                 ),
                 array(
@@ -888,32 +662,6 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'tab' => __( 'Item', 'live-composer-page-builder' ),
                 ),
                 array(
-                    'label' => __( 'Item Spacing', 'live-composer-page-builder' ),
-                    'id' => 'css_res_item_spacing',
-                    'std' => '3',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border ul span, .cs-select ul span',
-                    'affect_on_change_rule' => 'margin-bottom,margin-top',
-                    'section' => 'styling',
-                    'ext' => 'px',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Item Padding Vertical', 'live-composer-page-builder' ),
-                    'id' => 'css_res_item_padding_vertical',
-                    'onlypositive' => true, // Value can't be negative.
-                    'max' => 600,
-                    'std' => '15',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border ul span, .cs-select ul span',
-                    'affect_on_change_rule' => 'padding-top,padding-bottom',
-                    'section' => 'styling',
-                    'ext' => 'px',
-                    'tab' => 'responsive menu',
-                ),
-                array(
                     'label' => __( 'Padding Horizontal', 'live-composer-page-builder' ),
                     'id' => 'css_item_padding_horizontal',
                     'onlypositive' => true, // Value can't be negative.
@@ -925,45 +673,6 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'section' => 'styling',
                     'ext' => 'px',
                     'tab' => __( 'Item', 'live-composer-page-builder' ),
-                ),
-                 array(
-                    'label' => __( 'Item Padding Horizontal', 'live-composer-page-builder' ),
-                    'id' => 'css_res_item_padding_horizontal',
-                    'onlypositive' => true, // Value can't be negative.
-                    'std' => '20',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-skin-border ul span, .cs-select ul span',
-                    'affect_on_change_rule' => 'padding-left,padding-right',
-                    'section' => 'styling',
-                    'ext' => 'px',
-                    'tab' => 'responsive menu',
-                ),
-                array(
-                    'label' => __( 'Dropdown Margin Top', 'live-composer-page-builder' ),
-                    'id' => 'css_dd_margin_top_horizontal',
-                    'onlypositive' => true, // Value can't be negative.
-                    'std' => '15',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-select .cs-options',
-                    'affect_on_change_rule' => 'margin-top',
-                    'section' => 'styling',
-                    'ext' => 'px',
-                    'tab' => 'responsive menu',
-                ),
-                 array(
-                    'label' => __( 'Dropdown Padding Horizontal', 'live-composer-page-builder' ),
-                    'id' => 'css_res_dd_padding_horizontal',
-                    'onlypositive' => true, // Value can't be negative.
-                    'std' => '0',
-                    'type' => 'slider',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.cs-select .cs-options',
-                    'affect_on_change_rule' => 'padding-left, padding-right',
-                    'section' => 'styling',
-                    'ext' => 'px',
-                    'tab' => 'responsive menu',
                 ),
                 array(
                     'label' => __( 'Text Transform', 'live-composer-page-builder' ),
@@ -1666,11 +1375,345 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
 
                 /**
+                * Responsive Styling
+                */
+
+               array(
+                    'label' => __( 'Responsive Align', 'live-composer-page-builder' ),
+                    'id' => 'css_res_nav_align',
+                    'std' => 'right',
+                    'type' => 'text_align',
+                    'refresh_on_change' => true,
+                    'affect_on_change_el' => '.dslc-mobile-navigation, .cs-select ul, .cs-select > span',
+                    'affect_on_change_rule' => 'text-align',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+
+               array(
+                    'label' => __( 'Responsive Margin Bottom', 'live-composer-page-builder' ),
+                    'id' => 'css_res_margin_bottom',
+                    'std' => '0',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.dslc-mobile-navigation',
+                    'affect_on_change_rule' => 'margin-bottom',
+                    'section' => 'styling',
+                    'ext' => 'px',
+                    'tab' => 'responsive menu',
+                ),
+               array(
+                    'label' => __( 'Placeholder Color', 'live-composer-page-builder' ),
+                    'id' => 'css_res_ph_color',
+                    'std' => '#fd4970',
+                    'type' => 'color',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border.cs-active > span, span.cs-placeholder',
+                    'affect_on_change_rule' => 'color',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu'
+               ),
+                array(
+                    'label' => __( 'Placeholder Background', 'live-composer-page-builder' ),
+                    'id' => 'css_res_ph_bg_color',
+                    'std' => '',
+                    'type' => 'color',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border.cs-active > span, span.cs-placeholder',
+                    'affect_on_change_rule' => 'background',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Placeholder Border Color', 'live-composer-page-builder' ),
+                    'id' => 'css_res_ph_border_color',
+                    'std' => '#ffffff',
+                    'type' => 'color',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border > span, .cs-select > span, .cs-skin-underline > span, div.cs-skin-underline ',
+                    'affect_on_change_rule' => 'border-color',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Placeholder Border Width', 'live-composer-page-builder' ),
+                    'id' => 'css_res_ph_border_width',
+                    'onlypositive' => true, // Value can't be negative.
+                    'std' => '3',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border > span, .cs-select > span, .cs-skin-underline > span, div.cs-skin-underline ',
+                    'affect_on_change_rule' => 'border-width',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+                    'ext' => 'px',
+               ),
+               array(
+                    'label' => __( 'Placeholder Borders', 'live-composer-page-builder' ),
+                    'id' => 'css_res_ph_border',
+                    'std' => 'top right bottom left',
+                    'type' => 'checkbox',
+                    'choices' => array(
+                        array(
+                            'label' => __( 'Top', 'live-composer-page-builder' ),
+                            'value' => 'top',
+                        ),
+                        array(
+                            'label' => __( 'Right', 'live-composer-page-builder' ),
+                            'value' => 'right',
+                        ),
+                        array(
+                            'label' => __( 'Bottom', 'live-composer-page-builder' ),
+                            'value' => 'bottom',
+                        ),
+                        array(
+                            'label' => __( 'Left', 'live-composer-page-builder' ),
+                            'value' => 'left',
+                        ),
+                    ),
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border > span, .cs-select > span',
+                    'affect_on_change_rule' => 'border-style',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Placeholder Border Radius', 'live-composer-page-builder' ),
+                    'id' => 'css_res_ph_border_radius',
+                    'std' => '0',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border.cs-active > span, span.cs-placeholder',
+                    'affect_on_change_rule' => 'border-radius',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+                    'ext' => 'px',
+
+               ),
+               array(
+                    'label' => __( 'Placeholder Padding Vertical', 'live-composer-page-builder' ),
+                    'id' => 'css_res_ph_pad_vertical',
+                    'onlypositive' => true, // Value can't be negative.
+                    'max' => 100,
+                    'std' => '5',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => 'span.cs-placeholder',
+                    'affect_on_change_rule' => 'padding-top,padding-bottom',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+                    'ext' => 'px',
+               ),
+               array(
+                    'label' => __( 'Placeholder Padding Horizontal', 'live-composer-page-builder' ),
+                    'id' => 'css_res_ph_pad_horizontal',
+                    'onlypositive' => true, // Value can't be negative.
+                    'max' => 100,
+                    'std' => '5',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => 'span.cs-placeholder',
+                    'affect_on_change_rule' => 'padding-right,padding-left',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+                    'ext' => 'px',
+               ),
+               array(
+                    'label' => __( 'Dropdown BG Color', 'live-composer-page-builder' ),
+                    'id' => 'css_res_dropdown_bg_color',
+                    'std' => '#323232',
+                    'type' => 'color',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-select .cs-options',
+                    'affect_on_change_rule' => 'background-color',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Dropdown Border Color', 'live-composer-page-builder' ),
+                    'id' => 'css_res_dd_border_color',
+                    'std' => '',
+                    'type' => 'color',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options',
+                    'affect_on_change_rule' => 'border-color',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Dropdown Border Width', 'live-composer-page-builder' ),
+                    'id' => 'css_res_dd_border_width',
+                    'onlypositive' => true, // Value can't be negative.
+                    'std' => '3',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options',
+                    'affect_on_change_rule' => 'border-width',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+                    'ext' => 'px',
+               ),
+               array(
+                    'label' => __( 'Dropdown Borders', 'live-composer-page-builder' ),
+                    'id' => 'css_res_dd_borders',
+                    'std' => 'top right bottom left',
+                    'type' => 'checkbox',
+                    'choices' => array(
+                        array(
+                            'label' => __( 'Top', 'live-composer-page-builder' ),
+                            'value' => 'top',
+                        ),
+                        array(
+                            'label' => __( 'Right', 'live-composer-page-builder' ),
+                            'value' => 'right',
+                        ),
+                        array(
+                            'label' => __( 'Bottom', 'live-composer-page-builder' ),
+                            'value' => 'bottom',
+                        ),
+                        array(
+                            'label' => __( 'Left', 'live-composer-page-builder' ),
+                            'value' => 'left',
+                        ),
+                    ),
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options',
+                    'affect_on_change_rule' => 'border-style',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Dropdown Border Radius', 'live-composer-page-builder' ),
+                    'id' => 'css_res_dd_border_radius',
+                    'onlypositive' => true, // Value can't be negative.
+                    'std' => '5',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border .cs-options, .cs-select .cs-options, .cs-select ul.menu',
+                    'affect_on_change_rule' => 'border-radius',
+                    'section' => 'styling',
+                    'ext' => 'px',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Dropdown Margin Top', 'live-composer-page-builder' ),
+                    'id' => 'css_dd_margin_top_horizontal',
+                    'onlypositive' => true, // Value can't be negative.
+                    'std' => '15',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-select .cs-options',
+                    'affect_on_change_rule' => 'margin-top',
+                    'section' => 'styling',
+                    'ext' => 'px',
+                    'tab' => 'responsive menu',
+               ),
+                 array(
+                    'label' => __( 'Dropdown Padding Horizontal', 'live-composer-page-builder' ),
+                    'id' => 'css_res_dd_padding_horizontal',
+                    'onlypositive' => true, // Value can't be negative.
+                    'std' => '0',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-select .cs-options',
+                    'affect_on_change_rule' => 'padding-left, padding-right',
+                    'section' => 'styling',
+                    'ext' => 'px',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Item Color', 'live-composer-page-builder' ),
+                    'id' => 'css_res_item_color',
+                    'std' => '#ffffff',
+                    'type' => 'color',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-options span',
+                    'affect_on_change_rule' => 'color',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+                array(
+                    'label' => __( 'Item Color - Hover', 'live-composer-page-builder' ),
+                    'id' => 'css_res_item_color_hover',
+                    'std' => '#fd4970',
+                    'type' => 'color',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-select span:hover, .cs-select span:focus, cs-options li.menu-item:hover, li.menu-item:focus, .cs-options li span:hover, .cs-select span:hover',
+                    'affect_on_change_rule' => 'color',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+                array(
+                    'label' => __( 'Item Background Color', 'live-composer-page-builder' ),
+                    'id' => 'css_res_item_bg_color_active',
+                    'std' => '#fd4970',
+                    'type' => 'color',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-select ul > li',
+                    'affect_on_change_rule' => 'background',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Font Size', 'live-composer-page-builder' ),
+                    'id' => 'css_res_item_font_size',
+                    'onlypositive' => true, // Value can't be negative.
+                    'std' => '20',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-select ul span, span.cs-placeholder',
+                    'affect_on_change_rule' => 'font-size, line-height',
+                    'section' => 'styling',
+                    'tab' => 'responsive menu',
+                    'ext' => 'px',
+               ),
+               array(
+                    'label' => __( 'Item Spacing', 'live-composer-page-builder' ),
+                    'id' => 'css_res_item_spacing',
+                    'std' => '3',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border ul span, .cs-select ul span',
+                    'affect_on_change_rule' => 'margin-bottom,margin-top',
+                    'section' => 'styling',
+                    'ext' => 'px',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Item Padding Vertical', 'live-composer-page-builder' ),
+                    'id' => 'css_res_item_padding_vertical',
+                    'onlypositive' => true, // Value can't be negative.
+                    'max' => 600,
+                    'std' => '15',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border ul span, .cs-select ul span',
+                    'affect_on_change_rule' => 'padding-top,padding-bottom',
+                    'section' => 'styling',
+                    'ext' => 'px',
+                    'tab' => 'responsive menu',
+               ),
+               array(
+                    'label' => __( 'Item Padding Horizontal', 'live-composer-page-builder' ),
+                    'id' => 'css_res_item_padding_horizontal',
+                    'onlypositive' => true, // Value can't be negative.
+                    'std' => '20',
+                    'type' => 'slider',
+                    'refresh_on_change' => false,
+                    'affect_on_change_el' => '.cs-skin-border ul span, .cs-select ul span',
+                    'affect_on_change_rule' => 'padding-left,padding-right',
+                    'section' => 'styling',
+                    'ext' => 'px',
+                    'tab' => 'responsive menu',
+               ),
+
+                /**
                  * Responsive
                  */
 
                 array(
-                    'label' => __( 'Responsive Styling', 'live-composer-page-builder' ),
+                    'label' => __( 'Responsive Tablet Styling', 'live-composer-page-builder' ),
                     'id' => 'css_res_t',
                     'std' => 'enabled',
                     'type' => 'select',
@@ -1684,22 +1727,11 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                             'value' => 'enabled',
                         ),
                     ),
-                ),
-
-                array(
-                    'label' => __( 'Responsive Align', 'live-composer-page-builder' ),
-                    'id' => 'css_res_align',
-                    'std' => 'right',
-                    'type' => 'text_align',
-                    'refresh_on_change' => false,
-                    'affect_on_change_el' => '.dslc-mobile-navigation, .cs-select ul',
-                    'affect_on_change_rule' => 'text-align',
                     'section' => 'responsive',
-                    'tab' => 'responsive menu',
                 ),
 
                 array(
-                    'label' => __( 'Responsive Styling', 'live-composer-page-builder' ),
+                    'label' => __( 'Responsive Phone Styling', 'live-composer-page-builder' ),
                     'id' => 'css_res_p',
                     'std' => 'enabled',
                     'type' => 'select',
@@ -1713,7 +1745,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                             'value' => 'enabled',
                         ),
                     ),
-                    'section' => 'styling',
+                    'section' => 'responsive',
                 ),
 
             );
@@ -1754,12 +1786,12 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
             }
         } else {
             ?>
-            <div class="my-nav-module dslc-navigation dslc-navigation-sub-position-<?php echo esc_attr( $options['css_subnav_position'] ); ?> dslc-navigation-res-t-<?php echo esc_attr( $options['css_res_t'] ); ?> dslc-navigation-res-p-<?php echo esc_attr( $options['css_res_p'] ); ?> dslc-navigation-orientation-<?php echo esc_attr( $options['nav_orientation'] ); ?>">
+            <div class="dslc-navigation dslc-navigation-sub-position-<?php echo esc_attr( $options['css_subnav_position'] ); ?> dslc-navigation-res-t-<?php echo esc_attr( $options['css_res_t'] ); ?> dslc-navigation-res-p-<?php echo esc_attr( $options['css_res_p'] ); ?> dslc-navigation-orientation-<?php echo esc_attr( $options['nav_orientation'] ); ?>">
                 <div class="dslc-navigation-inner">
                     <?php wp_nav_menu( array( 'theme_location' => $options['location'] ) ); ?>
                 </div>
             </div>
-            <div class="my-nav-module dslc-mobile-navigation dslc-navigation-res-t-<?php echo esc_attr( $options['css_res_t'] ); ?>  dslc-navigation-res-p-<?php echo esc_attr( $options['css_res_p'] ); ?>">
+            <div class="my-nav-module dslc-mobile-navigation dslc-navigation-res-t-<?php echo esc_attr( $options['css_res_t'] ); ?>">
                 <?php
                 if ( has_nav_menu( $options['location'] ) ) {
 
@@ -1767,7 +1799,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     $select_class = 'cs-select cs-skin-underline ';
                     $mobile_nav_output = '';
                     $mobile_nav_output .= '<select class="' . $select_class . '" value="' . $options['location'] . '">';
-                    $mobile_nav_output .= '<option disabled>' . $placeholder . '</option>';
+                    $mobile_nav_output .= '<option disabled>' . $placeholder . '<i class="fa fa-bars"></i>' . '</option>';
 
                     if ( has_nav_menu( $options['location'] ) ) {
 
